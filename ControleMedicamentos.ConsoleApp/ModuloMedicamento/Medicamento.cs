@@ -20,7 +20,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
 
         public override string[] Validar()
         {
-            string[] erros = new string[3];
+            string[] erros = new string[4];
             int contadorErros = 0;
 
             if (string.IsNullOrEmpty(Nome.Trim()))

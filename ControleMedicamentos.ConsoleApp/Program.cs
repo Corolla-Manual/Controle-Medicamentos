@@ -1,5 +1,6 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
+using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
 using ControleMedicamentos.ConsoleApp.ModuloRequisicao;
@@ -40,6 +41,12 @@ namespace ControleMedicamentos.ConsoleApp
             telaRequisicaoSaida.repositorioPaciente = repositorioPaciente;
             telaRequisicaoSaida.repositorioMedicamento = repositorioMedicamento;
 
+            RepositorioFornecedor repositorioFornecedor = new RepositorioFornecedor();
+
+            TelaFornecedor telaFornecedor = new TelaFornecedor();
+            telaFornecedor.tipoEntidade = "Fornecedor";
+            telaFornecedor.repositorio = repositorioFornecedor;
+
             while (true)
             {
                 char opcaoPrincipalEscolhida = TelaPrincipal.ApresentarMenuPrincipal();
@@ -60,6 +67,10 @@ namespace ControleMedicamentos.ConsoleApp
 
                 else if (opcaoPrincipalEscolhida == '4')
                     tela = telaFuncionario;
+
+                else if (opcaoPrincipalEscolhida == '5')
+                    tela = telaFornecedor;
+
 
                 char operacaoEscolhida = tela.ApresentarMenu();
 
