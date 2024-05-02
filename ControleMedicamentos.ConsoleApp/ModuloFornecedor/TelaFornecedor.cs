@@ -54,5 +54,11 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFornecedor
 
             return fornecedor;
         }
+        public void CadastrarEntidadeTeste()
+        {
+            Fornecedor fornecedor = new Fornecedor("Fornecedor", "49 9999-9521", "12321313122");
+
+            repositorio.Cadastrar(fornecedor);
+        }
     }
 }

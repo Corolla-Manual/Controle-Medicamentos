@@ -55,5 +55,11 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
 
             return medicamento;
         }
+        public void CadastrarEntidadeTeste()
+        {
+            Medicamento medicamento = new Medicamento("Dorflex", "Remédio para dor", "A51", DateTime.Parse("22/11/2025"));
+
+            repositorio.Cadastrar(medicamento);
+        }
     }
 }

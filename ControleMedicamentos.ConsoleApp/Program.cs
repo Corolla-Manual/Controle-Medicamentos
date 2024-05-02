@@ -16,18 +16,19 @@ namespace ControleMedicamentos.ConsoleApp
             TelaPaciente telaPaciente = new TelaPaciente();
             telaPaciente.tipoEntidade = "Paciente";
             telaPaciente.repositorio = repositorioPaciente;
-
             telaPaciente.CadastrarEntidadeTeste();
 
             RepositorioMedicamento repositorioMedicamento = new RepositorioMedicamento();
             TelaMedicamento telaMedicamento = new TelaMedicamento();
             telaMedicamento.repositorio = repositorioMedicamento;
             telaMedicamento.tipoEntidade = "Medicamento";
+            telaMedicamento.CadastrarEntidadeTeste();
 
             RepositorioFuncionario repositorioFuncionario = new RepositorioFuncionario();
             TelaFuncionario telaFuncionario = new TelaFuncionario();
             telaFuncionario.repositorio = repositorioFuncionario;
             telaFuncionario.tipoEntidade = "Funcionário";
+            telaFuncionario.CadastrarEntidadeTeste();
 
             RepositorioRequisicaoSaida repositorioRequisicaoSaida = new RepositorioRequisicaoSaida();
 
@@ -46,6 +47,7 @@ namespace ControleMedicamentos.ConsoleApp
             TelaFornecedor telaFornecedor = new TelaFornecedor();
             telaFornecedor.tipoEntidade = "Fornecedor";
             telaFornecedor.repositorio = repositorioFornecedor;
+            telaFornecedor.CadastrarEntidadeTeste();
 
             RepositorioRequisicaoEntrada repositorioRequisicaoEntrada = new RepositorioRequisicaoEntrada();
 
