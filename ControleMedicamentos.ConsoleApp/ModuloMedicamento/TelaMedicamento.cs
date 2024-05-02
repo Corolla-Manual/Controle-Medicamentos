@@ -39,13 +39,13 @@ namespace ControleMedicamentos.ConsoleApp.ModuloMedicamento
 
         protected override EntidadeBase ObterRegistro()
         {
-            Console.Write("Digite o nome: ");
+            Console.Write("Digite o nome do medicamento: ");
             string nome = Console.ReadLine();
 
-            Console.Write("Digite a descrição: ");
+            Console.Write("Digite a descrição do medicamento: ");
             string descricao = Console.ReadLine();
 
-            Console.Write("Digite o lote: ");
+            Console.Write("Digite o lote do medicamento: ");
             string lote = Console.ReadLine();
 
             Console.Write("Digite a data de validade: ");
