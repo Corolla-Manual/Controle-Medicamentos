@@ -100,16 +100,15 @@ namespace ControleMedicamentos.ConsoleApp
                 if (operacaoEscolhida == '1')
                     tela.Registrar();
 
-                else if (operacaoEscolhida == '2')
+                else if (operacaoEscolhida == '2' && opcaoPrincipalEscolhida != '6')
                     tela.Editar();
 
-                else if (operacaoEscolhida == '3')
+                else if (operacaoEscolhida == '3' && opcaoPrincipalEscolhida != '6')
                     tela.Excluir();
 
                 else if (operacaoEscolhida == '4')
                     tela.VisualizarRegistros(true);
             }
-
             Console.ReadLine();
         }
     }
