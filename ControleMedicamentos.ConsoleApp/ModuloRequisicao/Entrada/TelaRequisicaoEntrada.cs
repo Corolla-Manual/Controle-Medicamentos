@@ -3,8 +3,9 @@ using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
+using System.Collections;
 
-namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
+namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada
 {
     internal class TelaRequisicaoEntrada : TelaBase
     {
@@ -28,9 +29,9 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
 
             RequisicaoEntrada entidade = (RequisicaoEntrada)ObterRegistro();
 
-            string[] erros = entidade.Validar();
+            ArrayList erros = entidade.Validar();
 
-            if (erros.Length > 0)
+            if (erros.Count > 0)
             {
                 ApresentarErros(erros);
                 return;
@@ -65,7 +66,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
                 "Id", "Funcionário", "Medicamento", "Paciente", "Data de Requisição", "Quantidade"
             );
 
-            EntidadeBase[] requisicoesCadastradas = repositorio.SelecionarTodos();
+            ArrayList requisicoesCadastradas = repositorio.SelecionarTodos();
 
             foreach (RequisicaoEntrada requisicao in requisicoesCadastradas)
             {

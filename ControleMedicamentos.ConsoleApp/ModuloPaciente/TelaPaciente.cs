@@ -1,4 +1,5 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using System.Collections;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloPaciente
 {
@@ -20,7 +21,7 @@ namespace ControleMedicamentos.ConsoleApp.ModuloPaciente
                 "Id", "Nome", "Telefone", "Cartão do SUS"
             );
 
-            EntidadeBase[] pacientesCadastrados = repositorio.SelecionarTodos();
+            ArrayList pacientesCadastrados = repositorio.SelecionarTodos();
 
             foreach (Paciente paciente in pacientesCadastrados)
             {

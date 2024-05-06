@@ -3,8 +3,9 @@ using ControleMedicamentos.ConsoleApp.ModuloFornecedor;
 using ControleMedicamentos.ConsoleApp.ModuloFuncionario;
 using ControleMedicamentos.ConsoleApp.ModuloMedicamento;
 using ControleMedicamentos.ConsoleApp.ModuloPaciente;
+using System.Collections;
 
-namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
+namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao.Entrada
 {
     internal class RequisicaoEntrada : EntidadeBase
     {
@@ -25,34 +26,29 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
         public Funcionario Funcionario { get; set; }
         public int QuantidadeRequisitada { get; set; }
 
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[5];
-            int contadorErros = 0;
+            ArrayList erros = new();
 
             if (DataRequisicao == null)
-                erros[contadorErros++] = "A data de requisição precisa ser preenchida";
+                erros.Add("A data de requisição precisa ser preenchida");
 
             if (Medicamento == null)
-                erros[contadorErros++] = "O Medicamento precisa ser informado";
+                erros.Add("O Medicamento precisa ser informado");
 
             if (Fornecedor == null)
-                erros[contadorErros++] = "O Fornecedor precisa ser informado";
+                erros.Add("O Fornecedor precisa ser informado");
 
             if (Funcionario == null)
-                erros[contadorErros++] = "O Funcionario precisa ser informado";
+                erros.Add("O Funcionario precisa ser informado");
 
             if (Paciente == null)
-                erros[contadorErros++] = "O Paciente precisa ser informado";
+                erros.Add("O Paciente precisa ser informado");
 
             if (QuantidadeRequisitada < 1)
-                erros[contadorErros++] = "Por favor informe uma quantidade válida";
+                erros.Add("Por favor informe uma quantidade válida");
 
-            string[] errosFiltrados = new string[contadorErros];
-
-            Array.Copy(erros, errosFiltrados, contadorErros);
-
-            return errosFiltrados;
+            return erros;
         }
         public bool RequisitarMedicamento()
         {
@@ -61,6 +57,17 @@ namespace ControleMedicamentos.ConsoleApp.ModuloRequisicao
 
             Medicamento.Quantidade += QuantidadeRequisitada;
             return true;
+        }
+
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            RequisicaoEntrada reqEntrada = (RequisicaoEntrada)novoRegistro;
+            this.DataRequisicao = reqEntrada.DataRequisicao;
+            this.Medicamento = reqEntrada.Medicamento;
+            this.Paciente = reqEntrada.Paciente;
+            this.Fornecedor = reqEntrada.Fornecedor;
+            this.Funcionario = reqEntrada.Funcionario;
+            this.QuantidadeRequisitada = reqEntrada.QuantidadeRequisitada;
         }
     }
 }

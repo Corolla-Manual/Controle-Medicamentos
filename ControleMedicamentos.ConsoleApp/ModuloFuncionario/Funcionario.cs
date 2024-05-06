@@ -1,4 +1,5 @@
 ﻿using ControleMedicamentos.ConsoleApp.Compartilhado;
+using System.Collections;
 
 namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
 {
@@ -14,25 +15,29 @@ namespace ControleMedicamentos.ConsoleApp.ModuloFuncionario
             CPF = cpf;
             Telefone = telefone;
         }
-        public override string[] Validar()
+        public override ArrayList Validar()
         {
-            string[] erros = new string[3];
-            int contadorErros = 0;
+            ArrayList erros = new();
 
             if (Nome.Length < 3)
-                erros[contadorErros++] = "O Nome do Funcionário precisa conter ao menos 3 caracteres";
+                erros.Add("O Nome do Funcionário precisa conter ao menos 3 caracteres");
 
             if (string.IsNullOrEmpty(Telefone))
-                erros[contadorErros++] = "O Telefone precisa ser preenchido";
+                erros.Add("O Telefone precisa ser preenchido");
 
             if (string.IsNullOrEmpty(CPF))
-                erros[contadorErros++] = "O CPF precisa ser preenchido";
+                erros.Add("O CPF precisa ser preenchido");
 
-            string[] errosFiltrados = new string[contadorErros];
+            return erros;
+        }
 
-            Array.Copy(erros, errosFiltrados, contadorErros);
+        public override void AtualizarRegistro(EntidadeBase novoRegistro)
+        {
+            Funcionario funcionario = (Funcionario)novoRegistro;
 
-            return errosFiltrados;
+            this.Nome = funcionario.Nome;
+            this.Telefone = funcionario.Telefone;
+            this.CPF = funcionario.CPF;
         }
     }
 }
